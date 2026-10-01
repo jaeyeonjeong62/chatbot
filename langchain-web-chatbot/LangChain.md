@@ -243,9 +243,9 @@ results = chain.batch([
 | `batch([inputs])` | 여러 입력 병렬 처리 |
 | `ainvoke`, `astream` | 비동기 버전 |
 
-prompt도 Runnable, llm도 Runnable, parser도 Runnable. 그래서 `|`로 연결할 수 있어요.
+prompt도 Runnable, llm도 Runnable, parser도 Runnable. 그래서 `|`로 연결할 수 있다.
 
-체인 자체도 Runnable이라서 다른 체인과 또 연결할 수 있습니다.
+체인 자체도 Runnable이라서 다른 체인과 또 연결할 수 있다.
 
 ```python
 sub_chain = prompt | llm

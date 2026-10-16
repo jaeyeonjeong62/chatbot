@@ -7,3 +7,4 @@ temp.ipynb
 *.pkl
 /.vscode
 /.ipynb_checkpoints
+*.pdf

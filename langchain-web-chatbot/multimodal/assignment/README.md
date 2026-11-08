@@ -1,6 +1,6 @@
 # PDF 추출 및 멀티모달 요약
 
-PDF에서 텍스트, 표, 이미지를 추출하고 OpenAI `gpt-4o-mini`로 검색용 요약을 생성합니다. 현재 `main.py`는 추출과 요약 결과 저장까지 수행합니다.
+PDF에서 텍스트, 표, 이미지를 추출하고 OpenAI `gpt-4o-mini`로 검색용 요약을 생성합니다. 요약과 원본을 검색기에 저장한 뒤 Gradio 채팅 화면에서 보고서에 대해 질문할 수 있습니다.
 
 ## 설치 및 설정
 
@@ -29,6 +29,7 @@ python -m pip install -r requirements.txt
 
 ```powershell
 python -m pip install -r requirements.lock.txt
+python -m pip install gradio
 ```
 
 ### 3. API 키 설정
@@ -63,7 +64,25 @@ OPENAI_API_KEY=실제_API_키
 python main.py
 ```
 
-실행 순서는 PDF 추출 → 텍스트 분할 → 추출 결과 저장 → API 키 확인 → 텍스트·표·이미지 요약 → 요약 결과 저장입니다.
+실행 순서는 PDF 추출 → 텍스트 분할 → 추출 결과 저장 → API 키 확인 → 텍스트·표·이미지 요약 → 요약 결과 저장 → 검색기와 체인 생성 → Gradio 실행입니다.
+
+준비가 끝나면 터미널에 표시되는 로컬 URL을 브라우저에서 여세요. 질문을 입력하면 `chat_fn(message, history)`가 `chain.invoke(message)`를 호출해 답변을 표시합니다. 현재 체인은 이전 대화 기록을 사용하지 않으므로 각 질문에 대상과 조건을 함께 적으세요. 서버 종료는 터미널에서 `Ctrl+C`를 누릅니다.
+
+## 실행 화면
+
+캡처한 사진을 `screenshots/` 폴더에 아래 파일명으로 저장한 뒤, 해당 이미지 줄의 `<!--`와 `-->`를 지우면 사진이 표시됩니다.
+
+### 1. Gradio 채팅 화면
+
+> 📷 채팅 화면 사진을 넣는 자리입니다. (`screenshots/chatbot.png`)
+
+<!-- ![Gradio 채팅 화면](screenshots/chatbot.png) -->
+
+### 2. 질문과 답변 결과
+
+> 📷 보고서에 대한 질문과 답변이 보이는 사진을 넣는 자리입니다. (`screenshots/answer.png`)
+
+<!-- ![보고서 질문과 답변 결과](screenshots/answer.png) -->
 
 ## 파일 및 결과
 

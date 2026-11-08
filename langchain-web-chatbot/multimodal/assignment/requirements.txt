@@ -16,3 +16,4 @@ tiktoken
 python-dotenv
 ipykernel
 jupyterlab
+gradio

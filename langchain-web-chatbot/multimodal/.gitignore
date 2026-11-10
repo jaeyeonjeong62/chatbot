@@ -24,3 +24,5 @@ __pycache__/
 #pkl 파일
 processed/
 *.pkl
+
+*.jpg
